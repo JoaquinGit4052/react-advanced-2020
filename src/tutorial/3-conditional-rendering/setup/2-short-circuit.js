@@ -1,12 +1,25 @@
-import React, { useState } from 'react';
-// short-circuit evaluation
-// ternary operator
+import React, { useState } from 'react'
 
 const ShortCircuit = () => {
-  // const firstValue = text || 'hello world';
-  // const secondValue = text && 'hello world';
+  const [text, setText] = useState('hi')
+  const [isError, setIsError] = useState(false)
 
-  return <h2>short circuit</h2>;
-};
+  //const firstValue = text || 'hello world'
+  //const secondValue = text && 'hello world'
 
-export default ShortCircuit;
+  return (
+    <>
+      {/*<h1>{firstValue}</h1>
+      <h1>value: {secondValue}</h1>*/}
+      <h1>{text || 'joaco'}</h1>
+      <button className='btn' onClick={() => setIsError(!isError)}>
+        Toggle error
+      </button>
+      {text && <h1>hello world</h1>}
+      {/*isError && <h1>Error</h1>*/}
+      {isError ? <h1>Error</h1> : <h1>No Error</h1>}
+    </>
+  )
+}
+
+export default ShortCircuit
